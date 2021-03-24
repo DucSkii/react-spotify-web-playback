@@ -1,14 +1,11 @@
 {
   "name": "react-spotify-web-playback",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "A React Spotify Web Player",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/gilbarbara/react-spotify-web-playback.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gilbarbara/react-spotify-web-playback/issues"
+    "url": "https://github.com/DucSkii/react-spotify-web-playback.git"
   },
   "homepage": "https://github.com/gilbarbara/react-spotify-web-playback#readme",
   "main": "lib/index.js",
