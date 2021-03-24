@@ -1,8 +1,8 @@
 .idea/
 .tmp/
 coverage/
-esm/
-lib/
+# esm/
+# lib/
 node_modules/
 reports/
 webpack.stats.json
