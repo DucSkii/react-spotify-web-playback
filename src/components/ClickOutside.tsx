@@ -51,7 +51,7 @@ export default class ClickOutside extends React.PureComponent<Props> {
     const { children, onClick, ...props } = this.props;
 
     return (
-      <div {...props} ref={this.setRef}>
+      <div {...props} ref={this.setRef} style={{ backgroundColor: 'rgb(81, 81, 81)' }}>
         {children}
       </div>
     );

@@ -59,14 +59,6 @@ function Actions(props: Props) {
 
   return (
     <Wrapper style={{ h: styles.height }}>
-      {currentDeviceId && (
-        <Volume
-          playerPosition={playerPosition}
-          volume={volume}
-          setVolume={setVolume}
-          styles={styles}
-        />
-      )}
       <Devices
         currentDeviceId={currentDeviceId}
         deviceId={deviceId}
@@ -76,6 +68,14 @@ function Actions(props: Props) {
         playerPosition={playerPosition}
         styles={styles}
       />
+      {currentDeviceId && (
+        <Volume
+          playerPosition={playerPosition}
+          volume={volume}
+          setVolume={setVolume}
+          styles={styles}
+        />
+      )}
     </Wrapper>
   );
 }
