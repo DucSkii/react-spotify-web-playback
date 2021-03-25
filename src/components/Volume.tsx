@@ -1,14 +1,17 @@
 import * as React from 'react';
-import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
 import { px, styled } from '../styles';
+// import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
 
 import { StylesOptions, StyledProps } from '../types/common';
 
-import ClickOutside from './ClickOutside';
+// import ClickOutside from './ClickOutside';
 
-import VolumeHigh from './icons/VolumeHigh';
-import VolumeLow from './icons/VolumeLow';
-import VolumeMute from './icons/VolumeMute';
+import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
+import VolumeDownOutlinedIcon from '@material-ui/icons/VolumeDownOutlined';
+import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
+import Slider from '@material-ui/core/Slider';
+
+import './icons.css';
 
 interface Props {
   playerPosition: string;
@@ -30,7 +33,7 @@ const Wrapper = styled('div')(
 
     '> div': {
       display: 'flex',
-      flexDirection: 'column',
+      // flexDirection: 'column',
       padding: px(12),
       position: 'absolute',
       right: `-${px(3)}`,
@@ -79,13 +82,13 @@ export default class Volume extends React.PureComponent<Props, State> {
     }
   }
 
-  private handleClick = () => {
-    this.setState((state) => ({ isOpen: !state.isOpen }));
-  };
+  // private handleClick = () => {
+  //   this.setState((state) => ({ isOpen: !state.isOpen }));
+  // };
 
-  private handleChangeSlider = ({ y }: RangeSliderPosition) => {
+  private handleChangeSlider = (newValue: any) => {
     const { setVolume } = this.props;
-    const volume = Math.round(y) / 100;
+    const volume = Math.round(newValue) / 100;
 
     clearTimeout(this.timeout);
 
@@ -96,29 +99,29 @@ export default class Volume extends React.PureComponent<Props, State> {
     this.setState({ volume });
   };
 
-  private handleAfterEnd = () => {
-    setTimeout(() => {
-      this.setState({ isOpen: false });
-    }, 100);
-  };
+  // private handleAfterEnd = () => {
+  //   setTimeout(() => {
+  //     this.setState({ isOpen: false });
+  //   }, 100);
+  // };
 
   public render() {
-    const { isOpen, volume } = this.state;
+    const { volume } = this.state;
     const {
       playerPosition,
       styles: { altColor, bgColor, color },
     } = this.props;
-    let icon = <VolumeHigh />;
+    let icon = <VolumeUpOutlinedIcon className="footerIcons" />;
 
     if (volume === 0) {
-      icon = <VolumeMute />;
+      icon = <VolumeOffOutlinedIcon className="footerIcons" />;
     } else if (volume <= 0.5) {
-      icon = <VolumeLow />;
+      icon = <VolumeDownOutlinedIcon className="footerIcons" />;
     }
 
     return (
       <Wrapper style={{ altColor, bgColor, c: color, p: playerPosition }}>
-        {isOpen && (
+        {/* {isOpen && (
           <ClickOutside onClick={this.handleClick}>
             <RangeSlider
               axis="y"
@@ -142,10 +145,13 @@ export default class Volume extends React.PureComponent<Props, State> {
               yMax={100}
             />
           </ClickOutside>
-        )}
-        <button type="button" onClick={!isOpen ? this.handleClick : undefined}>
-          {icon}
-        </button>
+        )} */}
+        <button type="button">{icon}</button>
+        <Slider
+          value={volume * 100}
+          onChange={(_event, val) => this.handleChangeSlider(val)}
+          style={{ color: 'rgb(158, 158, 158)', width: '120px' }}
+        />
       </Wrapper>
     );
   }

@@ -8,6 +8,8 @@ import ClickOutside from './ClickOutside';
 
 import DevicesIcon from '@material-ui/icons/Devices';
 
+import './icons.css';
+
 interface Props {
   currentDeviceId?: string;
   deviceId?: string;
@@ -130,7 +132,7 @@ export default class Devices extends React.PureComponent<Props, State> {
               </ClickOutside>
             )}
             <button type="button" onClick={this.handleClickToggleDevices}>
-              <DevicesIcon style={{ color: 'rgb(158, 158, 158)' }} />
+              <DevicesIcon className="footerIcons" />
             </button>
           </React.Fragment>
         )}
