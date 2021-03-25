@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { px, styled } from '../styles';
 
 import { StyledProps, StylesOptions } from '../types/common';
@@ -105,8 +106,12 @@ export default class Devices extends React.PureComponent<Props, State> {
       styles: { activeColor, altColor, color, bgColor },
     } = this.props;
 
+    const [hovered, setHovered] = useState(false);
+
     return (
       <Wrapper
+        onMouseOver={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
           altColor,
           bgColor,
@@ -132,7 +137,9 @@ export default class Devices extends React.PureComponent<Props, State> {
               </ClickOutside>
             )}
             <button type="button" onClick={this.handleClickToggleDevices}>
-              <DevicesIcon className="footerIcons" />
+              <DevicesIcon
+                style={{ color: `${isOpen || hovered ? 'white' : 'rgb(158, 158, 158)'}` }}
+              />
             </button>
           </React.Fragment>
         )}

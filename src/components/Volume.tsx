@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { px, styled } from '../styles';
 // import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
 
@@ -106,21 +107,32 @@ export default class Volume extends React.PureComponent<Props, State> {
   // };
 
   public render() {
+    const [hovered, setHovered] = useState(false);
     const { volume } = this.state;
     const {
       playerPosition,
       styles: { altColor, bgColor, color },
     } = this.props;
-    let icon = <VolumeUpOutlinedIcon className="footerIcons" />;
+    let icon = (
+      <VolumeUpOutlinedIcon style={{ color: `${hovered ? 'white' : 'rgb(158, 158, 158)'}` }} />
+    );
 
     if (volume === 0) {
-      icon = <VolumeOffOutlinedIcon className="footerIcons" />;
+      icon = (
+        <VolumeOffOutlinedIcon style={{ color: `${hovered ? 'white' : 'rgb(158, 158, 158)'}` }} />
+      );
     } else if (volume <= 0.5) {
-      icon = <VolumeDownOutlinedIcon className="footerIcons" />;
+      icon = (
+        <VolumeDownOutlinedIcon style={{ color: `${hovered ? 'white' : 'rgb(158, 158, 158)'}` }} />
+      );
     }
 
     return (
-      <Wrapper style={{ altColor, bgColor, c: color, p: playerPosition }}>
+      <Wrapper
+        onMouseOver={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ altColor, bgColor, c: color, p: playerPosition }}
+      >
         {/* {isOpen && (
           <ClickOutside onClick={this.handleClick}>
             <RangeSlider
@@ -150,7 +162,7 @@ export default class Volume extends React.PureComponent<Props, State> {
         <Slider
           value={volume * 100}
           onChange={(_event, val) => this.handleChangeSlider(val)}
-          style={{ color: 'rgb(158, 158, 158)', width: '120px' }}
+          style={{ color: `${hovered ? '#1db954' : 'rgb(158, 158, 158)'}`, width: '120px' }}
         />
       </Wrapper>
     );
