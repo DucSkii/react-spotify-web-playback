@@ -109,12 +109,24 @@ export default class Volume extends React.PureComponent<Props, State> {
       playerPosition,
       styles: { altColor, bgColor, color },
     } = this.props;
-    let icon = <VolumeUpOutlinedIcon style={{ color: 'rgb(158, 158, 158)' }} />;
+    let icon = (
+      <VolumeUpOutlinedIcon
+        style={{ color: 'rgb(158, 158, 158)', marginBottom: '3px', marginRight: '3px' }}
+      />
+    );
 
     if (volume === 0) {
-      icon = <VolumeOffOutlinedIcon style={{ color: 'rgb(158, 158, 158)' }} />;
+      icon = (
+        <VolumeOffOutlinedIcon
+          style={{ color: 'rgb(158, 158, 158)', marginBottom: '3px', marginRight: '3px' }}
+        />
+      );
     } else if (volume <= 0.5) {
-      icon = <VolumeDownOutlinedIcon style={{ color: 'rgb(158, 158, 158)' }} />;
+      icon = (
+        <VolumeDownOutlinedIcon
+          style={{ color: 'rgb(158, 158, 158)', marginBottom: '3px', marginRight: '3px' }}
+        />
+      );
     }
 
     return (
