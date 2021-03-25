@@ -39,7 +39,8 @@ const Wrapper = styled('div')(
         display: 'block',
         padding: px(8),
         whiteSpace: 'nowrap',
-
+        color: 'rgb(158, 158, 158)',
+        outline: 'none',
         '&.rswp__devices__active': {
           fontWeight: 'bold',
         },
@@ -56,10 +57,11 @@ const Wrapper = styled('div')(
     },
     '> div': {
       backgroundColor: style.bgColor,
-      boxShadow: style.altColor ? `1px 1px 10px ${style.altColor}` : 'none',
+      boxShadow: 'none',
       [style.p]: '120%',
       button: {
-        color: style.c,
+        color: 'rgb(158, 158, 158)',
+        outline: 'none',
       },
     },
   }),
