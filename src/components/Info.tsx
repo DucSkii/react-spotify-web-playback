@@ -212,7 +212,7 @@ export default class Info extends React.PureComponent<Props, State> {
 
     return (
       <Wrapper style={{ h: height }} className={classes.join(' ')}>
-        {track.image && <img src={track.image} alt={track.name} />}
+        {track.image && <img style={{ padding: '15px' }} src={track.image} alt={track.name} />}
         <Title style={{ c: color, h: height, activeColor, trackArtistColor, trackNameColor }}>
           <p>
             <span>{track.name}</span>
