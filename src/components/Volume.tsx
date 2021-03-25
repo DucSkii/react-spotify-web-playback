@@ -32,6 +32,7 @@ const Wrapper = styled('div')(
     '> div': {
       display: 'flex',
       // flexDirection: 'column',
+      alignItems: 'center',
       padding: px(12),
       position: 'absolute',
       right: `-${px(3)}`,
@@ -88,11 +89,7 @@ export default class Volume extends React.PureComponent<Props, State> {
     const { setVolume } = this.props;
     const volume = 0;
 
-    clearTimeout(this.timeout);
-
-    this.timeout = window.setTimeout(() => {
-      setVolume(volume);
-    }, 250);
+    setVolume(volume);
 
     this.setState({ volume });
   };
@@ -175,7 +172,7 @@ export default class Volume extends React.PureComponent<Props, State> {
         <Slider
           value={volume * 100}
           onChange={(_event, val) => this.handleChangeSlider(val)}
-          style={{ color: 'rgb(158, 158, 158)', width: '120px' }}
+          style={{ color: 'rgb(158, 158, 158)', width: '120px', marginBottom: '3px' }}
         />
       </Wrapper>
     );

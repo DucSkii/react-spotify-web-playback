@@ -29,6 +29,8 @@ const Wrapper = styled('div')(
 
     '> div + div': {
       marginLeft: px(10),
+      display: 'flex',
+      alignItems: 'center',
     },
 
     '@media (max-width: 1023px)': {
