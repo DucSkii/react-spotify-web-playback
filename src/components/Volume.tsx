@@ -84,6 +84,19 @@ export default class Volume extends React.PureComponent<Props, State> {
   //   this.setState((state) => ({ isOpen: !state.isOpen }));
   // };
 
+  private muteVolume = () => {
+    const { setVolume } = this.props;
+    const volume = 0;
+
+    clearTimeout(this.timeout);
+
+    this.timeout = window.setTimeout(() => {
+      setVolume(volume);
+    }, 250);
+
+    this.setState({ volume });
+  };
+
   private handleChangeSlider = (newValue: any) => {
     const { setVolume } = this.props;
     const volume = Math.round(newValue) / 100;
@@ -111,6 +124,7 @@ export default class Volume extends React.PureComponent<Props, State> {
     } = this.props;
     let icon = (
       <VolumeUpOutlinedIcon
+        onClick={this.muteVolume}
         style={{ color: 'rgb(158, 158, 158)', marginBottom: '3px', marginRight: '3px' }}
       />
     );
@@ -124,6 +138,7 @@ export default class Volume extends React.PureComponent<Props, State> {
     } else if (volume <= 0.5) {
       icon = (
         <VolumeDownOutlinedIcon
+          onClick={this.muteVolume}
           style={{ color: 'rgb(158, 158, 158)', marginBottom: '3px', marginRight: '3px' }}
         />
       );
