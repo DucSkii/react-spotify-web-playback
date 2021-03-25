@@ -9,6 +9,8 @@ import { SpotifyPlayerTrack } from '../types/spotify';
 import Favorite from './icons/Favorite';
 import FavoriteOutline from './icons/FavoriteOutline';
 
+import './styles.css';
+
 interface Props {
   onFavoriteStatusChange: (status: boolean) => any;
   isActive: boolean;
@@ -215,8 +217,8 @@ export default class Info extends React.PureComponent<Props, State> {
         {track.image && <img style={{ padding: '15px' }} src={track.image} alt={track.name} />}
         <Title style={{ c: color, h: height, activeColor, trackArtistColor, trackNameColor }}>
           <p>
-            <Link to={`/song/${track.id}`} style={{ color: 'white' }}>
-              <span>{track.name}</span>
+            <Link to={`/track/${track.id}`} style={{ color: 'white' }}>
+              <span className="textUnderline">{track.name}</span>
             </Link>
             {icon}
           </p>
