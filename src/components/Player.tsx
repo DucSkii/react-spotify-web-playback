@@ -35,12 +35,12 @@ put('.PlayerRSWP', {
 });
 
 const Player = React.forwardRef<HTMLDivElement, ComponentsProps>(
-  ({ children, styles: { bgColor, height } }, ref) => {
+  ({ children, styles: { height } }, ref) => {
     return (
       <div
         ref={ref}
         className="PlayerRSWP"
-        style={{ backgroundColor: bgColor, minHeight: px(height) }}
+        style={{ backgroundColor: 'red', minHeight: px(height) }}
       >
         {children}
       </div>
