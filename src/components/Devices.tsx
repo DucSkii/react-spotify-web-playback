@@ -6,7 +6,7 @@ import { SpotifyDevice } from '../types/spotify';
 
 import ClickOutside from './ClickOutside';
 
-import DevicesIcon from './icons/Devices';
+import DevicesIcon from '@material-ui/icons/Devices';
 
 interface Props {
   currentDeviceId?: string;
@@ -39,7 +39,7 @@ const Wrapper = styled('div')(
         display: 'block',
         padding: px(8),
         whiteSpace: 'nowrap',
-        color: 'rgb(158, 158, 158)',
+        color: 'white',
         outline: 'none',
         '&.rswp__devices__active': {
           fontWeight: 'bold',
@@ -60,7 +60,7 @@ const Wrapper = styled('div')(
       boxShadow: 'none',
       [style.p]: '120%',
       button: {
-        color: 'rgb(158, 158, 158)',
+        color: 'white',
         outline: 'none',
       },
     },
@@ -130,7 +130,7 @@ export default class Devices extends React.PureComponent<Props, State> {
               </ClickOutside>
             )}
             <button type="button" onClick={this.handleClickToggleDevices}>
-              <DevicesIcon />
+              <DevicesIcon style={{ color: 'rgb(158, 158, 158)' }} />
             </button>
           </React.Fragment>
         )}
