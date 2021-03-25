@@ -19,6 +19,9 @@ const Wrapper = styled('div')(
     zIndex: 10,
     width: '100%',
     justifyContent: 'center',
+    '> div': {
+      width: '33.3333%',
+    },
   },
   ({ style }: StyledProps) => ({
     height: px(style.sliderHeight),
