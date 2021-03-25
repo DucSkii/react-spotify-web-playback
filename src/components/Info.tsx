@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { checkTracksStatus, saveTracks, removeTracks } from '../spotify';
 import { px, styled } from '../styles';
+import { Link } from 'react-router-dom';
 
 import { StyledProps, StylesOptions } from '../types/common';
 import { SpotifyPlayerTrack } from '../types/spotify';
@@ -214,7 +215,9 @@ export default class Info extends React.PureComponent<Props, State> {
         {track.image && <img style={{ padding: '15px' }} src={track.image} alt={track.name} />}
         <Title style={{ c: color, h: height, activeColor, trackArtistColor, trackNameColor }}>
           <p>
-            <span>{track.name}</span>
+            <Link to={`/song/${track.id}`} style={{ color: 'white' }}>
+              <span>{track.name}</span>
+            </Link>
             {icon}
           </p>
           <p>{track.artists}</p>
