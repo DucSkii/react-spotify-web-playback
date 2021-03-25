@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
 import { px, styled } from '../styles';
-
 import { StyledProps, StylesOptions } from '../types/common';
 
 interface Props {
@@ -18,6 +17,7 @@ const Wrapper = styled('div')(
     position: 'relative',
     transition: 'height 0.3s',
     zIndex: 10,
+    width: '33.3333%',
   },
   ({ style }: StyledProps) => ({
     height: px(style.sliderHeight),
@@ -35,7 +35,7 @@ export default class Slider extends React.PureComponent<Props> {
   public render() {
     const { isMagnified, onToggleMagnify, position, styles } = this.props;
     const handleSize = styles.sliderHeight + 6;
-
+    //33.3333%
     return (
       <Wrapper
         onMouseEnter={onToggleMagnify}
