@@ -9,8 +9,6 @@ import ClickOutside from './ClickOutside';
 
 import DevicesIcon from '@material-ui/icons/Devices';
 
-import './icons.css';
-
 interface Props {
   currentDeviceId?: string;
   deviceId?: string;

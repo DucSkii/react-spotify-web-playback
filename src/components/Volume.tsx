@@ -12,8 +12,6 @@ import VolumeDownOutlinedIcon from '@material-ui/icons/VolumeDownOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 import Slider from '@material-ui/core/Slider';
 
-import './icons.css';
-
 interface Props {
   playerPosition: string;
   setVolume: (volume: number) => any;
