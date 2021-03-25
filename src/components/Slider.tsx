@@ -17,6 +17,8 @@ const Wrapper = styled('div')(
     position: 'relative',
     transition: 'height 0.3s',
     zIndex: 10,
+    width: '100%',
+    justifyContent: 'center',
   },
   ({ style }: StyledProps) => ({
     height: px(style.sliderHeight),
@@ -55,7 +57,6 @@ export default class Slider extends React.PureComponent<Props> {
               rangeColor: styles.sliderColor,
               trackBorderRadius: styles.sliderTrackBorderRadius,
               trackColor: styles.sliderTrackColor,
-              width: '33.3333%',
             },
           }}
           x={position}
