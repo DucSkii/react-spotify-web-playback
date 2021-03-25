@@ -14,6 +14,7 @@ interface Props {
 const Wrapper = styled('div')(
   {
     display: 'flex',
+    justifyContent: 'center',
     position: 'relative',
     transition: 'height 0.3s',
     zIndex: 10,
