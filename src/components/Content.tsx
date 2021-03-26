@@ -12,7 +12,7 @@ const Wrapper = styled('div')(
     position: 'relative',
 
     '> *': {
-      width: '100%',
+      width: '33.3333%',
 
       '@media (min-width: 1024px)': {
         width: '33.3333%',
