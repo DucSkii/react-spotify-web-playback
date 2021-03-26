@@ -1,6 +1,6 @@
 import * as React from 'react';
 import memoize from 'memoize-one';
-
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {
   getDevices,
   getPlaybackState,
@@ -131,6 +131,7 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
       status: STATUS.IDLE,
       track: this.emptyTrack,
       volume: parseVolume(props.initialVolume) || 1,
+      isCoverOpen: false,
     };
 
     this.styles = getMergedStyles(props.styles);
@@ -861,6 +862,18 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
     this.setState(state);
   };
 
+  private setCoverTrue = () => {
+    this.updateState({
+      isCoverOpen: true,
+    });
+  };
+
+  private setCoverFalse = () => {
+    this.updateState({
+      isCoverOpen: false,
+    });
+  };
+
   public render() {
     const {
       playerPosition,
@@ -903,6 +916,8 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
             token={token}
             track={track}
             updateSavedStatus={updateSavedStatus}
+            isCoverOpen={this.state.isCoverOpen}
+            setCoverTrue={this.setCoverTrue}
           />
         );
       }
@@ -945,6 +960,43 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
 
     return (
       <Player ref={this.ref} styles={this.styles}>
+        {this.state.isCoverOpen && (
+          <div
+            style={{
+              width: '232.86px',
+              height: '232.86px',
+              position: 'fixed',
+              bottom: '91px',
+              left: '0',
+            }}
+          >
+            <img
+              draggable="false"
+              src={track.image}
+              alt="Song Cover"
+              style={{ width: '100%', objectFit: 'cover' }}
+            />
+            <div
+              onClick={this.setCoverFalse}
+              style={{
+                width: '35px',
+                height: '35px',
+                position: 'absolute',
+                top: '15px',
+                left: '15px',
+                borderRadius: '100px',
+                color: 'white',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ExpandMoreIcon fontSize="large" />
+            </div>
+          </div>
+        )}
         {isReady && (
           <Slider
             isMagnified={isMagnified}

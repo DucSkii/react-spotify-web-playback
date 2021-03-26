@@ -46,6 +46,7 @@ export interface State {
   status: string;
   track: SpotifyPlayerTrack;
   volume: number;
+  isCoverOpen: boolean;
 }
 
 export interface PlayOptions {
