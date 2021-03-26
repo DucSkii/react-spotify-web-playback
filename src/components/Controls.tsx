@@ -23,7 +23,8 @@ interface Props {
 const Wrapper = styled('div')(
   {},
   ({ style }: StyledProps) => ({
-    alignItems: 'center',
+    padding: '15px 0px',
+    alignItems: 'flex-start',
     display: 'flex',
     height: px(style.h),
     justifyContent: 'center',

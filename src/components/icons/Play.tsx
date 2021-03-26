@@ -1,10 +1,25 @@
 import * as React from 'react';
+import { styled } from '../../styles';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
-function Play(props: any) {
+const Wrapper = styled('div')({
+  width: '30px',
+  height: '30px',
+  borderRadius: '100px',
+  backgroundColor: 'white',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  cursor: 'pointer',
+  color: 'black',
+  transition: 'all 0.2s',
+});
+
+function Play() {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 128 128" preserveAspectRatio="xMidYMid" {...props}>
-      <path d="M119.351 64L8.65 0v128z" fill="currentColor" />
-    </svg>
+    <Wrapper style={{}}>
+      <PlayArrowIcon fontSize="small" />
+    </Wrapper>
   );
 }
 
