@@ -13,6 +13,9 @@ const Wrapper = styled('div')({
   cursor: 'pointer',
   color: 'black',
   transition: 'all 0.2s',
+  '&:hover': {
+    transform: 'scale(1.1)',
+  },
 });
 
 function Play() {
