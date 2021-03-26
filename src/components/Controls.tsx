@@ -65,13 +65,17 @@ export default function Controls(props: Props) {
   return (
     <Wrapper style={{ c: color, h: height }}>
       <div>
-        {(!!previousTracks.length || isExternalDevice) && (
+        {!!previousTracks.length || isExternalDevice ? (
           <button
             type="button"
             onClick={onClickPrevious}
             aria-label="Previous Track"
             style={{ marginTop: '5px' }}
           >
+            <Previous />
+          </button>
+        ) : (
+          <button type="button" aria-label="Previous Track" style={{ marginTop: '5px' }}>
             <Previous />
           </button>
         )}
@@ -87,13 +91,17 @@ export default function Controls(props: Props) {
         </button>
       </div>
       <div>
-        {(!!nextTracks.length || isExternalDevice) && (
+        {!!nextTracks.length || isExternalDevice ? (
           <button
             type="button"
             onClick={onClickNext}
             aria-label="Next Track"
             style={{ marginTop: '5px' }}
           >
+            <Next />
+          </button>
+        ) : (
+          <button type="button" aria-label="Next Track" style={{ marginTop: '5px' }}>
             <Next />
           </button>
         )}
