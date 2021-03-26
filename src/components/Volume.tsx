@@ -31,7 +31,6 @@ const Wrapper = styled('div')(
 
     '> div': {
       display: 'flex',
-      // flexDirection: 'column',
       alignItems: 'center',
       padding: px(12),
       position: 'absolute',
@@ -168,7 +167,9 @@ export default class Volume extends React.PureComponent<Props, State> {
             />
           </ClickOutside>
         )} */}
-        <button type="button">{icon}</button>
+        <button type="button" style={{ zIndex: 50 }}>
+          {icon}
+        </button>
         <Slider
           value={volume * 100}
           onChange={(_event, val) => this.handleChangeSlider(val)}

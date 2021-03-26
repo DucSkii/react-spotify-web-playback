@@ -57,6 +57,14 @@ const Title = styled('div')(
     whiteSpace: 'nowrap',
 
     p: {
+      span: {
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+      },
+      '&:hover': {
+        textDecoration: 'underline',
+      },
       fontSize: px(14),
       lineHeight: 1.3,
       paddingRight: px(5),
