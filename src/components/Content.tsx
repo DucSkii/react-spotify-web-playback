@@ -7,8 +7,8 @@ const Wrapper = styled('div')(
   {
     alignItems: 'center',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     position: 'relative',
 
     '> *': {
@@ -17,10 +17,6 @@ const Wrapper = styled('div')(
       '@media (min-width: 1024px)': {
         width: '33.3333%',
       },
-    },
-
-    '@media (min-width: 1024px)': {
-      flexDirection: 'row',
     },
   },
   ({ style }: StyledProps) => ({
