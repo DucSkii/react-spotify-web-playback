@@ -10,6 +10,7 @@ interface Props {
   position: number;
   styles: StylesOptions;
   duration: number;
+  progress: number;
 }
 
 const Wrapper = styled('div')(
@@ -22,6 +23,7 @@ const Wrapper = styled('div')(
     width: '100%',
     justifyContent: 'center',
     padding: '0px 33.3333%',
+    alignItems: 'center',
   },
   ({ style }: StyledProps) => ({
     height: px(style.sliderHeight),
@@ -54,6 +56,16 @@ export default class Slider extends React.PureComponent<Props> {
         onMouseLeave={onToggleMagnify}
         style={{ sliderHeight: isMagnified ? styles.sliderHeight! + 4 : styles.sliderHeight }}
       >
+        <p
+          style={{
+            color: 'rgb(81, 81, 81)',
+            marginRight: '5px',
+            fontSize: '12px',
+            userSelect: 'none',
+          }}
+        >
+          {this.millisecondsToMinutes(this.props.progress)}
+        </p>
         <RangeSlider
           axis="x"
           onChange={this.handleChangeRange}
@@ -75,7 +87,14 @@ export default class Slider extends React.PureComponent<Props> {
           xMax={100}
           xStep={0.1}
         />
-        <p style={{ color: 'rgb(81, 81, 81)' }}>
+        <p
+          style={{
+            color: 'rgb(81, 81, 81)',
+            marginLeft: '5px',
+            fontSize: '12px',
+            userSelect: 'none',
+          }}
+        >
           {this.millisecondsToMinutes(this.props.duration)}
         </p>
       </Wrapper>

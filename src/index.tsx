@@ -953,6 +953,7 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
             position={position}
             styles={this.styles!}
             duration={this.state.track.durationMs}
+            progress={this.state.progressMs}
           />
         )}
         <Content styles={this.styles}>{output}</Content>
