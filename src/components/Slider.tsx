@@ -58,7 +58,7 @@ export default class Slider extends React.PureComponent<Props> {
       >
         <p
           style={{
-            color: 'rgb(81, 81, 81)',
+            color: 'rgb(158, 158, 158)',
             marginRight: '5px',
             fontSize: '12px',
             userSelect: 'none',
@@ -89,7 +89,7 @@ export default class Slider extends React.PureComponent<Props> {
         />
         <p
           style={{
-            color: 'rgb(81, 81, 81)',
+            color: 'rgb(158, 158, 158)',
             marginLeft: '5px',
             fontSize: '12px',
             userSelect: 'none',

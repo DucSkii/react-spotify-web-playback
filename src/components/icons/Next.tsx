@@ -1,13 +1,20 @@
 import * as React from 'react';
+import { styled } from '../../styles';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
 
-function Next(props: any) {
+const Wrapper = styled('div')({
+  color: 'rgb(158, 158, 158)',
+  cursor: 'pointer',
+  '&:hover': {
+    color: 'white',
+  },
+});
+
+function Next() {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 128 128" preserveAspectRatio="xMidYMid" {...props}>
-      <path
-        d="M98.91 53.749L5.817 0v128L98.91 74.251v47.93h23.273V5.819H98.909z"
-        fill="currentColor"
-      />
-    </svg>
+    <Wrapper style={{}}>
+      <SkipNextIcon fontSize="small" />
+    </Wrapper>
   );
 }
 

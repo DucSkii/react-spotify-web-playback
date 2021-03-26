@@ -52,24 +52,24 @@ const Wrapper = styled('div')(
 
 export default function Controls(props: Props) {
   const {
-    isExternalDevice,
     isPlaying,
     onClickNext,
     onClickPrevious,
     onClickTogglePlay,
-    nextTracks,
-    previousTracks,
     styles: { color, height },
   } = props;
 
   return (
     <Wrapper style={{ c: color, h: height }}>
       <div>
-        {(!!previousTracks.length || isExternalDevice) && (
-          <button type="button" onClick={onClickPrevious} aria-label="Previous Track">
-            <Previous />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={onClickPrevious}
+          aria-label="Previous Track"
+          style={{ marginTop: '5px' }}
+        >
+          <Previous />
+        </button>
       </div>
       <div>
         <button
@@ -82,11 +82,14 @@ export default function Controls(props: Props) {
         </button>
       </div>
       <div>
-        {(!!nextTracks.length || isExternalDevice) && (
-          <button type="button" onClick={onClickNext} aria-label="Next Track">
-            <Next />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={onClickNext}
+          aria-label="Next Track"
+          style={{ marginTop: '5px' }}
+        >
+          <Next />
+        </button>
       </div>
     </Wrapper>
   );
