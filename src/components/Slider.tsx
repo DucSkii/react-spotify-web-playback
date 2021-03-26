@@ -9,6 +9,7 @@ interface Props {
   onChangeRange: (position: number) => void;
   position: number;
   styles: StylesOptions;
+  duration: number;
 }
 
 const Wrapper = styled('div')(
@@ -33,6 +34,14 @@ export default class Slider extends React.PureComponent<Props> {
     const { onChangeRange } = this.props;
 
     onChangeRange(x);
+  };
+
+  private millisecondsToMinutes = (ms: number) => {
+    let minutes = Math.floor(ms / 60000);
+    let seconds = ((ms % 60000) / 1000).toFixed(0);
+    return Number(seconds) === 60
+      ? minutes + 1 + ':00'
+      : minutes + ':' + (Number(seconds) < 10 ? '0' : '') + Number(seconds);
   };
 
   public render() {
@@ -66,6 +75,9 @@ export default class Slider extends React.PureComponent<Props> {
           xMax={100}
           xStep={0.1}
         />
+        <p style={{ color: 'rgb(81, 81, 81)' }}>
+          {this.millisecondsToMinutes(this.props.duration)}
+        </p>
       </Wrapper>
     );
   }

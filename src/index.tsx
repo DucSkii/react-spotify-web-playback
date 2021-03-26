@@ -952,6 +952,7 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
             onToggleMagnify={this.handleToggleMagnify}
             position={position}
             styles={this.styles!}
+            duration={this.state.track.durationMs}
           />
         )}
         <Content styles={this.styles}>{output}</Content>
